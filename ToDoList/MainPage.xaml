@@ -14,10 +14,11 @@
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <Grid>
-                        <CheckBox Content="{Binding TaskText}"></CheckBox>
+                        <CheckBox Content="{Binding TaskText}" Checked="CheckBox_Checked"></CheckBox>
                     </Grid>
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
+        <Button x:Name="removeButton" Content="Remove" HorizontalAlignment="Left" Margin="10,565,0,0" VerticalAlignment="Top" Height="65" Width="340" Background="#B2FF0000" Click="removeButton_Click"/>
     </Grid>
 </Page>

@@ -9,10 +9,12 @@ namespace ToDoList.Models
     class Task
     {
         public string TaskText { get; set; }
+        public bool Checked { get; set; }
 
         public Task(string task)
         {
             TaskText = task;
+            Checked = false;
         }
     }
 }

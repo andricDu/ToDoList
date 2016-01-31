@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -35,6 +36,31 @@ namespace ToDoList
         {
             tasks.Add(new Task(InputBox.Text));
             listBox.ItemsSource = tasks;
+        }
+
+        private void removeButton_Click(object sender, RoutedEventArgs e)
+        {
+            foreach (var task in tasks.ToList())
+            {
+                if (task.Checked)
+                {
+                    tasks.Remove(task);
+                }
+            }
+        }
+
+        private void CheckBox_Checked(object sender, RoutedEventArgs e)
+        {
+            var checkbox = sender as CheckBox;
+            var text = checkbox.Content.ToString();
+            Debug.WriteLine(text);
+            foreach (var task in tasks)
+            {
+                if (task.TaskText == text)
+                {
+                    task.Checked = true;
+                }
+            }
         }
     }
 }
